@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* Tailwind v4 uses the explicit .dark class controlled by the theme button. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Intermediate shades used by the existing GradeFlow design. */
+@theme {
+  --color-slate-250: #d8e0eb;
+  --color-slate-750: #293548;
+  --color-slate-850: #172033;
+}
+
+:root {
+  color-scheme: light;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+:root.dark {
+  color-scheme: dark;
+  background: #020617;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background: #020617;
+  color: #f1f5f9;
+}
+
+/* Keep native form controls readable in both browser color schemes. */
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b;
+}
+
+select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.dark select option {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+input[type='range'] {
+  color-scheme: inherit;
+}
+
+::selection {
+  background: #c7d2fe;
+  color: #312e81;
+}
+
+.dark ::selection {
+  background: #4338ca;
+  color: #ffffff;
+}
+
+:where(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid #818cf8;
+  outline-offset: 2px;
+}
+
+.dark :where(button, a, input, select, textarea):focus-visible {
+  outline-color: #a5b4fc;
+}
+
+/* Theme changes feel intentional without delaying interaction. */
+body,
+header,
+footer,
+main,
+section,
+article,
+button,
+input,
+select,
+textarea {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 180ms;
+  transition-timing-function: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  :root,
+  :root.dark {
+    color-scheme: light;
+    background: #ffffff;
+  }
+
+  body,
+  .dark body {
+    background: #ffffff;
+    color: #0f172a;
+  }
+}
