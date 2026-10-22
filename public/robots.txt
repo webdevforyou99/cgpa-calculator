@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://yourusername.github.io/gradeflow-cgpa-calculator/sitemap.xml
+Sitemap: https://webdevforyou99.github.io/cgpa-calculator/sitemap.xml
